@@ -21,7 +21,14 @@ export default function EarthScene() {
         <Canvas camera={{ position: [0, 0, 5] }}>
             <ambientLight />
             <directionalLight position={[5, 5, 5]} />
-            <OrbitControls enableZoom={true} />
+            <OrbitControls enableZoom={true}
+                           enablePan={false}         // 화면 끌어당기기 막음
+                           enableRotate={true}      // 회전만 허용
+                           autoRotate={false}       // 필요 시 true로 설정
+                           target={[0, 0, 0]}
+                           minDistance={3}
+                           maxDistance={10}
+            />
             <Earth />
         </Canvas>
     );
