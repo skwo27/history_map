@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { TextureLoader } from "three";
 import { useLoader } from "@react-three/fiber";
-import earth from "/Users/dgsw48/WebstormProjects/untitled18/src/earthhd.jpg";
+import earth from "/Users/dgsw48/WebstormProjects/untitled18/src/components/earthhd.jpg";
 
 export function Earth() {
     const texture = useLoader(TextureLoader,  earth ); // public 폴더에 넣어야 함

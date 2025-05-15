@@ -1,5 +1,5 @@
 // App.js
-import EarthScene from "./Earth";
+import EarthScene from "./components/Earth";
 
 function App() {
     return (
