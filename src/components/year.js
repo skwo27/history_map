@@ -2,9 +2,11 @@ import {useState} from "react";
 import './year.css';
 
 function Year() {
+
     let now = new Date();
     let thisYear = now.getFullYear(); // 현재 년도 가져오기
     let [year, setYear] = useState(thisYear);
+
     return (
         <div className="container">
             <div className="year">
