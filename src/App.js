@@ -1,10 +1,9 @@
-import EarthScene from "./components/Earth";
-import Year from "./components/year";
+import Earth from "./components/Earth";
 
 export default function App() {
     return (
         <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
-            <EarthScene />
+            <Earth />
             <div style={{
                 position: "absolute",
                 top: "20px",
@@ -14,7 +13,6 @@ export default function App() {
                 fontWeight: "bold",
                 zIndex: 10
             }}>
-                <Year/>
             </div>
         </div>
     );

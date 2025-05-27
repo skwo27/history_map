@@ -4,7 +4,6 @@ import { OrbitControls } from "@react-three/drei";
 import { TextureLoader } from "three";
 import { useLoader } from "@react-three/fiber";
 
-
 export function Earth() {
     const texture = useLoader(TextureLoader, "/earth.jpg");
     return (

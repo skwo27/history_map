@@ -1,0 +1,125 @@
+.year-selector {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+  width: 400px;
+  text-align: center;
+  z-index: 100;
+}
+
+.year-selector h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.year-selector input[type="range"] {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.year-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.year-buttons button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 2px;
+  transition: background 0.3s;
+}
+
+.year-buttons button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.year-buttons button.active {
+  background: rgba(255, 255, 255, 0.6);
+  font-weight: bold;
+}
+
+.country-info {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+  max-width: 300px;
+  z-index: 100;
+}
+
+.country-info h3 {
+  margin-top: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 5px;
+}
+
+.country-info button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.country-info button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.loading-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  z-index: 200;
+  width: 300px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  transition: width 0.3s ease;
+}
+
+/* 전체 컨테이너 스타일 */
+.earth-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 캔버스 스타일 */
+.earth-canvas {
+  width: 100%;
+  height: 100%;
+}
