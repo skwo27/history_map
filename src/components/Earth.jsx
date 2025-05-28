@@ -79,7 +79,7 @@ export default function EarthScene() {
                 </div>
                 <input
                     type="range"
-                    min="1900"
+                    min="1700"
                     max="2010"
                     step="1"
                     value={year}

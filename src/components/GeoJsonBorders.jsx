@@ -173,7 +173,7 @@ export const YearlyBorders = ({
   opacity = 0.8,
   onCountryClick
 }) => {
-  const availableYears = [1900, 1914, 1920, 1930, 1938, 1945, 1960, 1994, 2000, 2010];
+  const availableYears = [1700, 1715, 1783, 1800, 1815, 1880, 1900, 1914, 1920, 1930, 1938, 1945, 1960, 1994, 2000, 2010];
 
   const closestYear = useMemo(() => {
     if (availableYears.includes(year)) return year;
