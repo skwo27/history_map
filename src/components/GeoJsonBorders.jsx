@@ -35,9 +35,9 @@ const processGeoJsonCoordinates = (coordinates, radius) => {
 const processFeature = (feature, radius) => {
   const { geometry, properties } = feature;
   const { type, coordinates } = geometry;
-  
+
   let lines = [];
-  
+
   if (type === "Polygon") {
     coordinates.forEach(ring => {
       lines.push(processGeoJsonCoordinates(ring, radius));
@@ -55,7 +55,7 @@ const processFeature = (feature, radius) => {
       lines.push(processGeoJsonCoordinates(line, radius));
     });
   }
-  
+
   return {
     lines,
     properties
@@ -79,29 +79,29 @@ const CountryBorders = ({ feature, radius, color, lineWidth, opacity, onClick })
   const processedFeature = useMemo(() => {
     return processFeature(feature, radius);
   }, [feature, radius]);
-  
+
   return (
     <group onClick={(e) => {
       e.stopPropagation();
       if (onClick) onClick(feature.properties);
     }}>
       {processedFeature.lines.map((line, i) => (
-        <BorderLine 
-          key={`line-${i}`} 
-          points={line} 
-          color={color} 
-          lineWidth={lineWidth} 
-          opacity={opacity} 
+        <BorderLine
+          key={`line-${i}`}
+          points={line}
+          color={color}
+          lineWidth={lineWidth}
+          opacity={opacity}
         />
       ))}
     </group>
   );
 };
-export const GeoJsonBorders = ({ 
-  geoJsonUrl, 
+export const GeoJsonBorders = ({
+  geoJsonUrl,
   year = 1900,
-  radius = 2, 
-  color = "white", 
+  radius = 2,
+  color = "white",
   lineWidth = 1,
   opacity = 0.8,
   onCountryClick
@@ -112,7 +112,7 @@ export const GeoJsonBorders = ({
 
   useEffect(() => {
     setLoading(true);
-    
+
     fetch(geoJsonUrl)
       .then(response => {
         if (!response.ok) {
@@ -130,24 +130,24 @@ export const GeoJsonBorders = ({
         setLoading(false);
       });
   }, [geoJsonUrl]);
-  
+
   if (loading) return null;
   if (error) return null;
   if (!geoJson) return null;
-  
+
   return (
     <group>
       {geoJson.features.map((feature, index) => {
         let borderOpacity = opacity;
         let borderWidth = lineWidth;
-        
+
         if (feature.properties.BORDERPRECISION === 1) {
           borderOpacity = opacity * 0.7; // 대략적인 국경은 더 투명하게
           borderWidth = lineWidth * 0.8;
         } else if (feature.properties.BORDERPRECISION === 3) {
           borderWidth = lineWidth * 1.2; // 정확한 국경은 더 굵게
         }
-        
+
         return (
           <CountryBorders
             key={`country-${index}`}
@@ -164,15 +164,17 @@ export const GeoJsonBorders = ({
   );
 };
 
-export const YearlyBorders = ({ 
-  baseUrl = "/data", 
-  year = 1900, 
+export const YearlyBorders = ({
+  baseUrl = "/data",
+  year = 1900,
   radius = 2,
   color = "white",
   lineWidth = 1,
   opacity = 0.8,
   onCountryClick
 }) => {
+
+  //년도 추가시 수정
   const availableYears = [1700, 1715, 1783, 1800, 1815, 1880, 1900, 1914, 1920, 1930, 1938, 1945, 1960, 1994, 2000, 2010];
 
   const closestYear = useMemo(() => {
@@ -183,9 +185,9 @@ export const YearlyBorders = ({
 
     return Math.min(...availableYears);
   }, [year]);
-  
+
   const geoJsonUrl = `${baseUrl}/world_${closestYear}.geojson`;
-  
+
   return (
     <GeoJsonBorders
       geoJsonUrl={geoJsonUrl}
