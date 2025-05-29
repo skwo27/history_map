@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo, useRef } from "react";
 import { useLoader } from "@react-three/fiber";
 import { Line } from "@react-three/drei";
 import * as THREE from "three";
+import { getYear } from "./Earth";
 
 const latLongToVector3 = (lat, lng, radius) => {
   const phi = (90 - lat) * (Math.PI / 180);
@@ -175,7 +176,7 @@ export const YearlyBorders = ({
 }) => {
 
   //년도 추가시 수정
-  const availableYears = [1700, 1715, 1783, 1800, 1815, 1880, 1900, 1914, 1920, 1930, 1938, 1945, 1960, 1994, 2000, 2010];
+  const availableYears = getYear();
 
   const closestYear = useMemo(() => {
     if (availableYears.includes(year)) return year;

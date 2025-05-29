@@ -5,8 +5,13 @@ import { TextureLoader } from "three";
 import { useLoader } from "@react-three/fiber";
 import { YearlyBorders } from "./GeoJsonBorders";
 
+export function getYear() {
+    return [1500, 1530, 1600, 1650, 1700, 1715, 1783, 1800, 1815, 1880, 1900, 1914, 1920, 1930, 1938, 1945, 1960, 1994, 2000, 2010];
+}
+
 export function Earth({ year, onCountryClick }) {
     const texture = useLoader(TextureLoader, "/earth.jpg");
+
 
     return (
         <>
@@ -41,6 +46,10 @@ export default function EarthScene() {
     const handleYearChange = (e) => {
         setYear(parseInt(e.target.value));
     };
+
+
+    const maxYear = getYear()[getYear().length - 1];
+    const minYear = getYear()[0];
 
     return (
         <div style={{ position: "relative", width: "100%", height: "100vh" }}>
@@ -77,8 +86,8 @@ export default function EarthScene() {
                 </div>
                 <input
                     type="range"
-                    min="1700" //이거
-                    max="2010"
+                    max={maxYear} //이거
+                    min={minYear}
                     step="1"
                     value={year}
                     onChange={handleYearChange}
