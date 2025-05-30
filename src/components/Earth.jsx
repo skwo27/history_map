@@ -6,7 +6,13 @@ import { useLoader } from "@react-three/fiber";
 import { YearlyBorders } from "./GeoJsonBorders";
 
 export function getYear() {
-    return [1500, 1530, 1600, 1650, 1700, 1715, 1783, 1800, 1815, 1880, 1900, 1914, 1920, 1930, 1938, 1945, 1960, 1994, 2000, 2010];
+    return [
+        1200, 1279, 1300, 1400, 1492,
+        1500, 1530, 1600, 1650,
+        1700, 1715, 1783, 1800, 1815, 1880,
+        1900, 1914, 1920, 1930, 1938, 1945, 1960, 1994,
+        2000, 2010
+    ];
 }
 
 export function Earth({ year, onCountryClick }) {
@@ -28,7 +34,6 @@ export function Earth({ year, onCountryClick }) {
                 color="white"
                 lineWidth={1}
                 opacity={0.8}
-                onCountryClick={onCountryClick}
             />
         </>
     );
@@ -36,12 +41,6 @@ export function Earth({ year, onCountryClick }) {
 
 export default function EarthScene() {
     const [year, setYear] = useState(2010);
-    const [selectedCountry, setSelectedCountry] = useState(null);
-
-    const handleCountryClick = (properties) => {
-        setSelectedCountry(properties);
-        console.log("Selected country:", properties);
-    };
 
     const handleYearChange = (e) => {
         setYear(parseInt(e.target.value));
@@ -65,7 +64,7 @@ export default function EarthScene() {
                     minDistance={2.8}
                     maxDistance={10}
                 />
-                <Earth year={year} onCountryClick={handleCountryClick} />
+                <Earth year={year} />
             </Canvas>
 
             <div style={{

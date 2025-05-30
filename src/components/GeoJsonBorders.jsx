@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useMemo, useRef } from "react";
-import { useLoader } from "@react-three/fiber";
+import React, { useEffect, useState, useMemo} from "react";
 import { Line } from "@react-three/drei";
 import * as THREE from "three";
 import { getYear } from "./Earth";
@@ -100,7 +99,6 @@ const CountryBorders = ({ feature, radius, color, lineWidth, opacity, onClick })
 };
 export const GeoJsonBorders = ({
   geoJsonUrl,
-  year = 1900,
   radius = 2,
   color = "white",
   lineWidth = 1,
@@ -172,10 +170,8 @@ export const YearlyBorders = ({
   color = "white",
   lineWidth = 1,
   opacity = 0.8,
-  onCountryClick
 }) => {
 
-  //년도 추가시 수정
   const availableYears = getYear();
 
   const closestYear = useMemo(() => {
@@ -196,7 +192,6 @@ export const YearlyBorders = ({
       color={color}
       lineWidth={lineWidth}
       opacity={opacity}
-      onCountryClick={onCountryClick}
     />
   );
 };
