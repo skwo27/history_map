@@ -6,7 +6,6 @@ import { useLoader } from "@react-three/fiber";
 import { YearlyBorders } from "./GeoJsonBorders";
 
 export function getYear() {
-    console.log("getYear");
     return [
         1200, 1279, 1300, 1400, 1492,
         1500, 1530, 1600, 1650,
