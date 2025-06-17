@@ -7,6 +7,7 @@ import { YearlyBorders } from "./GeoJsonBorders";
 
 export function getYear() {
     return [
+        1000, 1100,
         1200, 1279, 1300, 1400, 1492,
         1500, 1530, 1600, 1650,
         1700, 1715, 1783, 1800, 1815, 1880,
@@ -14,6 +15,7 @@ export function getYear() {
         2000, 2010
     ];
 }
+
 
 export function Earth({ year, onCountryClick }) {
     const texture = useLoader(TextureLoader, "/earth.jpg");
@@ -83,9 +85,9 @@ export default function EarthScene() {
                 <div style={{ marginBottom: "5px" }}>
                     <span>연도: {year}</span>
                 </div>
-                <input
+                <input //슬라이더
                     type="range"
-                    max={maxYear} //이거
+                    max={maxYear}
                     min={minYear}
                     step="1"
                     value={year}
