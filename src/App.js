@@ -3,7 +3,7 @@ import Earth from "./components/Earth";
 export default function App() {
     return (
         <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
-            <Earth />
+            <Earth/>
             <div style={{
                 position: "absolute",
                 top: "20px",

@@ -49,9 +49,21 @@ export default function EarthScene() {
     };
 
 
+    function earthClicked(){
+        console.log("spaceClicked");
+        setAutoTurn(autoTurn !== true)
+    }
+
+    window.addEventListener("keyup", fKeyUp, true);
+    function fKeyUp(e){
+        if(e.keyCode === 32){
+            earthClicked()
+        }
+    }
+
     const maxYear = getYear()[getYear().length - 1];
     const minYear = getYear()[0];
-
+    let [autoTurn, setAutoTurn] = useState(false);
     return (
         <div style={{ position: "relative", width: "100%", height: "100vh" }}>
             <Canvas camera={{ position: [0, 0, 5] }}>
@@ -61,12 +73,13 @@ export default function EarthScene() {
                     enablePan={false}
                     enableZoom={true}
                     enableRotate={true}
-                    autoRotate={false}
+                    autoRotate={autoTurn}
+                    autoRotateSpeed={1.5}
                     target={[0, 0, 0]}
                     minDistance={2.8}
                     maxDistance={10}
                 />
-                <Earth year={year} />
+                <Earth year={year}/>
             </Canvas>
 
             <div style={{
