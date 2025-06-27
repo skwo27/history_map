@@ -17,7 +17,7 @@ export function getYear() {
 }
 
 
-export function Earth({ year, onCountryClick }) {
+export function Earth({ year}) {
     const texture = useLoader(TextureLoader, "/earth.jpg");
 
 
